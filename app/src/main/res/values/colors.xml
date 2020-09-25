@@ -11,7 +11,9 @@
     <color name="colorContinueButtonText">#FFFFFF</color>
 
     <color name="colorDivider">#C7C7CC</color>
-    <color name="colorShevronArrow">#D1D1D6</color>
+    <color name="colorArrowRight">#D1D1D6</color>
     <color name="colorAccountCircle">#000000</color>
+
+    <color name="colorButtonDisable">#C9C9CC</color>
 
 </resources>

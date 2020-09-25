@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">MoneyTran</string>
+    <string name="recipient_name">John Wick</string>
+    <string name="recipient_account_number">GB42 PRTC 0099 8500 0846 69</string>
+
+    <string name="primary_account">Primary Account</string>
+    <string name="total_balance">Total balance in EUR: €4,099.12</string>
+
+    <string name="account_caption">USE ACCOUNT</string>
+
+    <string name="currency">United States Dollar</string>
+    <string name="currency_balance">2,315.26 USD</string>
+
+    <string name="caption_amount">AMOUNT</string>
+
+    <string name="fee">Fee</string>
+
+    <string name="continue_button">Continue</string>
+
+    <string name="default_fee_amount_hint">$0.00</string>
+    <string name="default_amount_hint">$0.00</string>
+
+    <string name="content_description_recipient_avatar">Recipient Avatar</string>
+    <string name="content_description_create">Create</string>
+    <string name="content_description_account_balance">Account Balance</string>
+    <string name="content_description_currency_flag">Currency flag</string>
+    <string name="content_description_info">Info</string>
 </resources>
