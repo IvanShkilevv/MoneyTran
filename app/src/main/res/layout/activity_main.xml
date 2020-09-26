@@ -224,7 +224,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/imageViewFlag"
+                    android:id="@+id/imageViewFlagEUR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16.5dp"
@@ -237,7 +237,7 @@
                     android:contentDescription="@string/content_description_currency_flag" />
 
                 <TextView
-                    android:id="@+id/textViewCurrency"
+                    android:id="@+id/textViewCurrencyEUR"
                     style="@style/BodyText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -245,12 +245,12 @@
                     android:layout_marginTop="@dimen/activity_margin_top"
                     android:layout_marginEnd="@dimen/barrier_margin_end"
                     android:text="@string/currency"
-                    app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrow2"
-                    app:layout_constraintStart_toEndOf="@+id/imageViewFlag"
+                    app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowEUR"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewFlagEUR"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textViewCurrencyBalance"
+                    android:id="@+id/textViewCurrencyBalanceEUR"
                     style="@style/DetailsText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -258,12 +258,12 @@
                     android:layout_marginTop="2dp"
                     android:layout_marginEnd="@dimen/barrier_margin_end"
                     android:text="@string/currency_balance"
-                    app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrow2"
-                    app:layout_constraintStart_toEndOf="@+id/imageViewFlag"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewCurrency" />
+                    app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowEUR"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewFlagEUR"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyEUR" />
 
                 <ImageView
-                    android:id="@+id/imageViewShevronArrow2"
+                    android:id="@+id/imageViewShevronArrowEUR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/activity_margin_end"
@@ -274,11 +274,11 @@
                     tools:ignore = "contentDescription"/>
 
                 <androidx.constraintlayout.widget.Barrier
-                    android:id="@+id/barrier3"
+                    android:id="@+id/barrierEUR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:barrierDirection="left"
-                    app:constraint_referenced_ids="imageViewShevronArrow2" />
+                    app:constraint_referenced_ids="imageViewShevronArrowEUR" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -362,6 +362,15 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewFee" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/continue_button" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

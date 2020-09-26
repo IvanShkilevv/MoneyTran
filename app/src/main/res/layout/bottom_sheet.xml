@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools">
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewCurrencyEUR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewFlagEUR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="@dimen/activity_margin_top"
+                        android:layout_marginBottom="16dp"
+                        android:contentDescription="@string/content_description_currency_flag"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/flag_european_union" />
+
+                    <TextView
+                        android:id="@+id/textViewCurrencyEUR"
+                        style="@style/BodyText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_start"
+                        android:layout_marginTop="@dimen/activity_margin_top"
+                        android:layout_marginEnd="@dimen/barrier_margin_end"
+                        android:text="EURO"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowEUR"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagEUR"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewCurrencyBalanceEUR"
+                        style="@style/DetailsText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_start"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="@dimen/barrier_margin_end"
+                        android:text="4,099.12 EUR"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowEUR"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagEUR"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyEUR" />
+
+                    <ImageView
+                        android:id="@+id/imageViewShevronArrowEUR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/check_margin_end"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_check"
+                        tools:ignore="contentDescription" />
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrierEUR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="left"
+                        app:constraint_referenced_ids="imageViewShevronArrowEUR" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewCurrencyUSD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyEUR">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewFlagUSD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16.5dp"
+                        android:layout_marginTop="@dimen/activity_margin_top"
+                        android:layout_marginBottom="17dp"
+                        android:contentDescription="@string/content_description_currency_flag"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/flag_united_states" />
+
+                    <TextView
+                        android:id="@+id/textViewCurrencyUSD"
+                        style="@style/BodyText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_start"
+                        android:layout_marginTop="@dimen/activity_margin_top"
+                        android:layout_marginEnd="@dimen/barrier_margin_end"
+                        android:text="United States Dollar"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowUSD"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagUSD"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewCurrencyBalanceUSD"
+                        style="@style/DetailsText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_start"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="@dimen/barrier_margin_end"
+                        android:text="2,315.26 USD"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowUSD"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagUSD"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyUSD" />
+
+                    <ImageView
+                        android:id="@+id/imageViewShevronArrowUSD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/check_margin_end"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_check"
+                        tools:ignore="contentDescription" />
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrierUSD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="left"
+                        app:constraint_referenced_ids="imageViewShevronArrowUSD" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewCurrencyGBP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyUSD">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewFlagGBP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="@dimen/activity_margin_top"
+                        android:layout_marginBottom="16dp"
+                        android:contentDescription="@string/content_description_currency_flag"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/flag_united_kingdom" />
+
+                    <TextView
+                        android:id="@+id/textViewCurrencyGBP"
+                        style="@style/BodyText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_start"
+                        android:layout_marginTop="@dimen/activity_margin_top"
+                        android:layout_marginEnd="@dimen/barrier_margin_end"
+                        android:text="British Pound"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowGBP"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagGBP"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewCurrencyBalanceGBP"
+                        style="@style/DetailsText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_start"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="@dimen/barrier_margin_end"
+                        android:text="854.23 GBP"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowGBP"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagGBP"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyGBP" />
+
+                    <ImageView
+                        android:id="@+id/imageViewShevronArrowGBP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/check_margin_end"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_check"
+                        tools:ignore="contentDescription" />
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrierGBP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="left"
+                        app:constraint_referenced_ids="imageViewShevronArrowGBP" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewCurrencyRUB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyGBP">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewFlagRUB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="@dimen/activity_margin_top"
+                        android:layout_marginBottom="16dp"
+                        android:contentDescription="@string/content_description_currency_flag"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/flag_russia" />
+
+                    <TextView
+                        android:id="@+id/textViewCurrencyRUB"
+                        style="@style/BodyText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_start"
+                        android:layout_marginTop="@dimen/activity_margin_top"
+                        android:layout_marginEnd="@dimen/barrier_margin_end"
+                        android:text="Russian Ruble"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowRUB"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagRUB"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewCurrencyBalanceRUB"
+                        style="@style/DetailsText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_start"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="@dimen/barrier_margin_end"
+                        android:text="0.00 RUB"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowRUB"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagRUB"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyRUB" />
+
+                    <ImageView
+                        android:id="@+id/imageViewShevronArrowRUB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/check_margin_end"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_check"
+                        tools:ignore="contentDescription" />
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrierRUB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="left"
+                        app:constraint_referenced_ids="imageViewShevronArrowRUB" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewCurrencyCNY"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyRUB">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewFlagCNY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="@dimen/activity_margin_top"
+                        android:layout_marginBottom="16dp"
+                        android:contentDescription="@string/content_description_currency_flag"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/flag_china" />
+
+                    <TextView
+                        android:id="@+id/textViewCurrencyCNY"
+                        style="@style/BodyText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_start"
+                        android:layout_marginTop="@dimen/activity_margin_top"
+                        android:layout_marginEnd="@dimen/barrier_margin_end"
+                        android:text="Chinese Yuan"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowCNY"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagCNY"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewCurrencyBalanceCNY"
+                        style="@style/DetailsText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_start"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="@dimen/barrier_margin_end"
+                        android:text="0.00 CNY"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowCNY"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagCNY"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyCNY" />
+
+                    <ImageView
+                        android:id="@+id/imageViewShevronArrowCNY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/check_margin_end"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_check"
+                        tools:ignore="contentDescription" />
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrierCNY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="left"
+                        app:constraint_referenced_ids="imageViewShevronArrowCNY" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewCurrencyJPY"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyCNY">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewFlagJPY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="@dimen/activity_margin_top"
+                        android:layout_marginBottom="16dp"
+                        android:contentDescription="@string/content_description_currency_flag"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/flag_japan" />
+
+                    <TextView
+                        android:id="@+id/textViewCurrencyJPY"
+                        style="@style/BodyText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_start"
+                        android:layout_marginTop="@dimen/activity_margin_top"
+                        android:layout_marginEnd="@dimen/barrier_margin_end"
+                        android:text="Japanese Yen"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowJPY"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagJPY"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewCurrencyBalanceJPY"
+                        style="@style/DetailsText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_start"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="@dimen/barrier_margin_end"
+                        android:text="0.00 JPY"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowJPY"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagJPY"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyJPY" />
+
+                    <ImageView
+                        android:id="@+id/imageViewShevronArrowJPY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/check_margin_end"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_check"
+                        tools:ignore="contentDescription" />
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrierJPY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="left"
+                        app:constraint_referenced_ids="imageViewShevronArrowJPY" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewCurrencyUAH"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyJPY">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewFlagUAH"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="@dimen/activity_margin_top"
+                        android:layout_marginBottom="16dp"
+                        android:contentDescription="@string/content_description_currency_flag"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/flag_ukraine" />
+
+                    <TextView
+                        android:id="@+id/textViewCurrencyUAH"
+                        style="@style/BodyText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_start"
+                        android:layout_marginTop="@dimen/activity_margin_top"
+                        android:layout_marginEnd="@dimen/barrier_margin_end"
+                        android:text="Ukrainian Hryvnia"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowUAH"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagUAH"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewCurrencyBalanceUAH"
+                        style="@style/DetailsText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_start"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="@dimen/barrier_margin_end"
+                        android:text="0.00 UAH"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowUAH"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagUAH"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyUAH" />
+
+                    <ImageView
+                        android:id="@+id/imageViewShevronArrowUAH"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/check_margin_end"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_check"
+                        tools:ignore="contentDescription" />
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrierUAH"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="left"
+                        app:constraint_referenced_ids="imageViewShevronArrowUAH" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:id="@+id/extraSpace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyUAH" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>
