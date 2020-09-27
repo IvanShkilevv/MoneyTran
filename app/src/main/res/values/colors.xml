@@ -14,6 +14,8 @@
     <color name="colorArrowRight">#D1D1D6</color>
     <color name="colorAccountCircle">#000000</color>
 
+    <color name="colorSwipeMarker">#CBCDCC</color>
+
     <color name="colorButtonDisable">#C9C9CC</color>
 
 </resources>
