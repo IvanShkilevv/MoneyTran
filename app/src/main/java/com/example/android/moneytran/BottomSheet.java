@@ -41,6 +41,7 @@ public class BottomSheet extends BottomSheetDialogFragment {
                 if (BottomSheetBehavior.STATE_EXPANDED == i) {
 //                    showView(binding.toolbar, getActionBarSize());
 //                    hideAppBar(binding.profileLayout);
+
                     Toast.makeText(getActivity().getApplicationContext(), "STATE_EXPANDED", Toast.LENGTH_SHORT).show();
                 }
                 if (BottomSheetBehavior.STATE_COLLAPSED == i) {
@@ -82,6 +83,9 @@ public class BottomSheet extends BottomSheetDialogFragment {
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
     }
 
+    @Override public int getTheme() {
+        return R.style.BottomSheetDialogTheme;
+    }
 
 
     private void hideAppBar(View view) {
