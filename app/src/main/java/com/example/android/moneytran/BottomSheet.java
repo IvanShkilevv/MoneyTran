@@ -2,11 +2,9 @@ package com.example.android.moneytran;
 
 import android.app.Dialog;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -23,37 +21,36 @@ public class BottomSheet extends BottomSheetDialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         BottomSheetDialog bottomSheet = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
-        View view = View.inflate(getContext(), R.layout.bottom_sheet, null);
-        binding = DataBindingUtil.bind(view);
-        bottomSheet.setContentView(view);
-
-        bottomSheetBehavior = BottomSheetBehavior.from((View) (view.getParent()));
+        View rootView = View.inflate(getContext(), R.layout.bottom_sheet, null);
+        binding = DataBindingUtil.bind(rootView);
+        bottomSheet.setContentView(rootView);
+        bottomSheetBehavior = BottomSheetBehavior.from((View) (rootView.getParent()));
 
         //setting Peek at the 16:9 ratio keyline of its parent.
         bottomSheetBehavior.setPeekHeight(BottomSheetBehavior.PEEK_HEIGHT_AUTO);
 
-        //setting  height of bottom sheet
+        //setting height of bottom sheet for expanded state
         binding.extraSpace.setMinimumHeight((Resources.getSystem().getDisplayMetrics().heightPixels) / 3);
+
+        binding.expandedStateClose.setOnClickListener( view -> {
+            dismiss();
+        });
+
+        binding.expandedStateBar.setVisibility(View.GONE);
 
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View view, int i) {
                 if (BottomSheetBehavior.STATE_EXPANDED == i) {
-//                    showView(binding.toolbar, getActionBarSize());
-//                    hideAppBar(binding.profileLayout);
-
-                    Toast.makeText(getActivity().getApplicationContext(), "STATE_EXPANDED", Toast.LENGTH_SHORT).show();
+                    binding.expandedStateBar.setVisibility(View.VISIBLE);
+                    binding.collapsedStateBar.setVisibility(View.GONE);
                 }
                 if (BottomSheetBehavior.STATE_COLLAPSED == i) {
-//                    hideAppBar(binding.toolbar);
-//                    showView(binding.profileLayout, getActionBarSize());
-                    Toast.makeText(getActivity().getApplicationContext(), "STATE_COLLAPSED", Toast.LENGTH_SHORT).show();
-
+                    binding.collapsedStateBar.setVisibility(View.VISIBLE);
+                    binding.expandedStateBar.setVisibility(View.GONE);
                 }
 
                 if (BottomSheetBehavior.STATE_HIDDEN == i) {
-                    Toast.makeText(getActivity().getApplicationContext(), "STATE_HIDDEN", Toast.LENGTH_SHORT).show();
-
                     dismiss();
                 }
             }
@@ -64,16 +61,6 @@ public class BottomSheet extends BottomSheetDialogFragment {
             }
         });
 
-//        binding.cancelBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                dismiss();
-//            }
-//        });
-//
-//        //hiding app bar at the start
-//        hideAppBar(binding.appBarLayout);
         return bottomSheet;
     }
 
@@ -86,25 +73,6 @@ public class BottomSheet extends BottomSheetDialogFragment {
     @Override public int getTheme() {
         return R.style.BottomSheetDialogTheme;
     }
-
-
-    private void hideAppBar(View view) {
-        ViewGroup.LayoutParams params = view.getLayoutParams();
-        params.height = 0;
-        view.setLayoutParams(params);
-    }
-
-    private void showView(View view, int size) {
-        ViewGroup.LayoutParams params = view.getLayoutParams();
-        params.height = size;
-        view.setLayoutParams(params);
-    }
-
-//    private int getActionBarSize() {
-//        final TypedArray array = getContext().getTheme().obtainStyledAttributes(new int[]{android.R.attr.actionBarSize});
-//        int size = (int) array.getDimension(0, 0);
-//        return size;
-//    }
 
 
 }

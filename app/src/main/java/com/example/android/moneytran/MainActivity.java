@@ -10,12 +10,10 @@ import com.example.android.moneytran.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View rootView = binding.getRoot();
         setContentView(rootView);
@@ -25,12 +23,14 @@ public class MainActivity extends AppCompatActivity {
             bottomSheet.show(getSupportFragmentManager(),bottomSheet.getTag());
         });
 
-        toolbar =  findViewById(R.id.toolbar);
-        toolbar.setTitle("Send money to");
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
-        toolbar.setNavigationOnClickListener(view -> finish());
+        setToolbar();
 
+    }
 
+    private void setToolbar () {
+        binding.toolbar.setTitle(R.string.send_money_title);
+        binding.toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        binding.toolbar.setNavigationOnClickListener(view -> finish());
     }
 
 

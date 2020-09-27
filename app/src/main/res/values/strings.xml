@@ -26,4 +26,5 @@
     <string name="content_description_currency_flag">Currency flag</string>
     <string name="content_description_info">Info</string>
     <string name="choose_currency_title">Choose currency</string>
+    <string name="send_money_title">Send money to</string>
 </resources>
