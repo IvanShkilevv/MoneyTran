@@ -127,8 +127,8 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/text_margin_start"
                         android:layout_marginTop="@dimen/activity_margin_top"
                         android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="EURO"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowEUR"
+                        android:text="@string/euro_name"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckEUR"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFlagEUR"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -140,13 +140,13 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/text_margin_start"
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="4,099.12 EUR"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowEUR"
+                        android:text="@string/euro_balance"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckEUR"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFlagEUR"
                         app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyEUR" />
 
                     <ImageView
-                        android:id="@+id/imageViewShevronArrowEUR"
+                        android:id="@+id/imageViewCheckEUR"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/check_margin_end"
@@ -161,7 +161,7 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:barrierDirection="left"
-                        app:constraint_referenced_ids="imageViewShevronArrowEUR" />
+                        app:constraint_referenced_ids="imageViewCheckEUR" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -201,8 +201,8 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/text_margin_start"
                         android:layout_marginTop="@dimen/activity_margin_top"
                         android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="United States Dollar"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowUSD"
+                        android:text="@string/usd_name"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckUSD"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFlagUSD"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -214,13 +214,13 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/text_margin_start"
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="2,315.26 USD"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowUSD"
+                        android:text="@string/usd_balance"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckUSD"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFlagUSD"
                         app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyUSD" />
 
                     <ImageView
-                        android:id="@+id/imageViewShevronArrowUSD"
+                        android:id="@+id/imageViewCheckUSD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/check_margin_end"
@@ -235,7 +235,7 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:barrierDirection="left"
-                        app:constraint_referenced_ids="imageViewShevronArrowUSD" />
+                        app:constraint_referenced_ids="imageViewCheckUSD" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -275,8 +275,8 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/text_margin_start"
                         android:layout_marginTop="@dimen/activity_margin_top"
                         android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="British Pound"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowGBP"
+                        android:text="@string/gbp_name"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckGBP"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFlagGBP"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -288,13 +288,13 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/text_margin_start"
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="854.23 GBP"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowGBP"
+                        android:text="@string/gbp_balance"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckGBP"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFlagGBP"
                         app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyGBP" />
 
                     <ImageView
-                        android:id="@+id/imageViewShevronArrowGBP"
+                        android:id="@+id/imageViewCheckGBP"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/check_margin_end"
@@ -309,7 +309,7 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:barrierDirection="left"
-                        app:constraint_referenced_ids="imageViewShevronArrowGBP" />
+                        app:constraint_referenced_ids="imageViewCheckGBP" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -349,8 +349,8 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/text_margin_start"
                         android:layout_marginTop="@dimen/activity_margin_top"
                         android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="Russian Ruble"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowRUB"
+                        android:text="@string/rub_name"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckRUB"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFlagRUB"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -362,13 +362,13 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/text_margin_start"
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="0.00 RUB"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowRUB"
+                        android:text="@string/rub_balance"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckRUB"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFlagRUB"
                         app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyRUB" />
 
                     <ImageView
-                        android:id="@+id/imageViewShevronArrowRUB"
+                        android:id="@+id/imageViewCheckRUB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/check_margin_end"
@@ -383,7 +383,7 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:barrierDirection="left"
-                        app:constraint_referenced_ids="imageViewShevronArrowRUB" />
+                        app:constraint_referenced_ids="imageViewCheckRUB" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -423,8 +423,8 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/text_margin_start"
                         android:layout_marginTop="@dimen/activity_margin_top"
                         android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="Chinese Yuan"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowCNY"
+                        android:text="@string/cny_name"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckCNY"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFlagCNY"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -436,13 +436,13 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/text_margin_start"
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="0.00 CNY"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowCNY"
+                        android:text="@string/cny_balance"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckCNY"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFlagCNY"
                         app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyCNY" />
 
                     <ImageView
-                        android:id="@+id/imageViewShevronArrowCNY"
+                        android:id="@+id/imageViewCheckCNY"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/check_margin_end"
@@ -457,7 +457,7 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:barrierDirection="left"
-                        app:constraint_referenced_ids="imageViewShevronArrowCNY" />
+                        app:constraint_referenced_ids="imageViewCheckCNY" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -497,8 +497,8 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/text_margin_start"
                         android:layout_marginTop="@dimen/activity_margin_top"
                         android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="Japanese Yen"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowJPY"
+                        android:text="@string/jpy_name"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckJPY"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFlagJPY"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -510,13 +510,13 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/text_margin_start"
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="0.00 JPY"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowJPY"
+                        android:text="@string/jpy_balance"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckJPY"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFlagJPY"
                         app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyJPY" />
 
                     <ImageView
-                        android:id="@+id/imageViewShevronArrowJPY"
+                        android:id="@+id/imageViewCheckJPY"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/check_margin_end"
@@ -531,7 +531,7 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:barrierDirection="left"
-                        app:constraint_referenced_ids="imageViewShevronArrowJPY" />
+                        app:constraint_referenced_ids="imageViewCheckJPY" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -571,8 +571,8 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/text_margin_start"
                         android:layout_marginTop="@dimen/activity_margin_top"
                         android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="Ukrainian Hryvnia"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowUAH"
+                        android:text="@string/uah_name"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckUAH"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFlagUAH"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -584,13 +584,13 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/text_margin_start"
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="0.00 UAH"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewShevronArrowUAH"
+                        android:text="@string/uah_balance"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckUAH"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFlagUAH"
                         app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyUAH" />
 
                     <ImageView
-                        android:id="@+id/imageViewShevronArrowUAH"
+                        android:id="@+id/imageViewCheckUAH"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/check_margin_end"
@@ -605,7 +605,7 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:barrierDirection="left"
-                        app:constraint_referenced_ids="imageViewShevronArrowUAH" />
+                        app:constraint_referenced_ids="imageViewCheckUAH" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>

@@ -27,4 +27,19 @@
     <string name="content_description_info">Info</string>
     <string name="choose_currency_title">Choose currency</string>
     <string name="send_money_title">Send money to</string>
+
+    <string name="euro_name">EURO</string>
+    <string name="euro_balance">4,099.12 EUR</string>
+    <string name="usd_name">United States Dollar</string>
+    <string name="usd_balance">2,315.26 USD</string>
+    <string name="gbp_name">British Pound</string>
+    <string name="gbp_balance">854.23 GBP</string>
+    <string name="rub_name">Russian Ruble</string>
+    <string name="rub_balance">0.00 RUB</string>
+    <string name="cny_name">Chinese Yuan</string>
+    <string name="cny_balance">0.00 CNY</string>
+    <string name="jpy_name">Japanese Yen</string>
+    <string name="jpy_balance">0.00 JPY</string>
+    <string name="uah_name">Ukrainian Hryvnia</string>
+    <string name="uah_balance">0.00 UAH</string>
 </resources>
