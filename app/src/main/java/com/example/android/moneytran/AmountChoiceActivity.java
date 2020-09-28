@@ -3,6 +3,7 @@ package com.example.android.moneytran;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.Editable;
@@ -10,16 +11,21 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.android.moneytran.currency.CurrentCurrency;
 import com.example.android.moneytran.databinding.ActivityAmountChoiceBinding;
+
+import java.text.DecimalFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class AmountChoiceActivity extends AppCompatActivity {
     private static final String LOG_TAG = AmountChoiceActivity.class.getSimpleName();
     ActivityAmountChoiceBinding binding;
     private final char currencySymbol = CurrentCurrency.currentCurrency.getSymbol();
-
+    private float amount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +40,12 @@ public class AmountChoiceActivity extends AppCompatActivity {
         setEditTextProperties();
 
         binding.doneButton.setOnClickListener(v -> {
-
+            if (parseInputText()) {
+                Intent intent = new Intent();
+                intent.putExtra("editTextValue", amount);
+                setResult(RESULT_OK, intent);
+                finish();
+            }
         });
 
 
@@ -81,8 +92,7 @@ public class AmountChoiceActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 setCurrencySymbol();
-                try {
-                    if (s.length() > 1 ) {
+                    if (checkInputValidation(s)) {
                         binding.cancelButton.setVisibility(View.GONE);
                         binding.doneButton.setVisibility(View.VISIBLE);
                     }
@@ -90,9 +100,6 @@ public class AmountChoiceActivity extends AppCompatActivity {
                         binding.cancelButton.setVisibility(View.VISIBLE);
                         binding.doneButton.setVisibility(View.GONE);
                     }
-                } catch (IndexOutOfBoundsException e) {
-                   Log.e(LOG_TAG, e.toString()) ;
-                }
             }
 
             @Override
@@ -100,6 +107,55 @@ public class AmountChoiceActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private boolean checkInputValidation(CharSequence s) {
+        boolean isInputValid = false;
+
+        try {
+            if (s.length() > 1 & s.charAt(0) == currencySymbol) {
+                isInputValid = true;
+            }
+
+            if (s.charAt(1) == '.') {
+                isInputValid = false;
+            }
+
+            if (s.charAt(1) == '0' & s.length() == 2) {
+                isInputValid = false;
+            }
+
+            if (s.charAt(1) == '0' & s.charAt(2) == '.' & s.length() == 3) {
+                isInputValid = false;
+            }
+
+            if (s.charAt(1) == '0' & s.charAt(2) == '0') {
+                isInputValid = false;
+            }
+
+        } catch (IndexOutOfBoundsException e) {
+            Log.e(LOG_TAG, e.toString());
+        }
+
+        return isInputValid;
+    }
+
+    private boolean parseInputText () {
+        boolean isParsingSuccessful = false;
+        String text = binding.editText.getText().toString();
+        try {
+            float rawAmount = Float.parseFloat(text.substring(1));
+            DecimalFormat decimalFormat = new DecimalFormat("#0.00");
+            amount = Float.parseFloat(decimalFormat.format(rawAmount));
+            isParsingSuccessful = true;
+        } catch (NumberFormatException e) {
+            Log.e(LOG_TAG, e.toString());
+            Toast.makeText(this, R.string.wrong_user_input, Toast.LENGTH_SHORT).show();
+        } catch (NullPointerException e) {
+            Log.e(LOG_TAG, e.toString());
+            Toast.makeText(this, R.string.empty_user_input, Toast.LENGTH_SHORT).show();
+        }
+        return isParsingSuccessful;
     }
 
 
