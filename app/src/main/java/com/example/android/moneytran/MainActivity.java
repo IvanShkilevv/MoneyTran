@@ -12,6 +12,7 @@ import com.example.android.moneytran.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity  implements BottomSheet.onCurrencyChangedListener {
     ActivityMainBinding binding;
+    private final int requestCode = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +71,7 @@ public class MainActivity extends AppCompatActivity  implements BottomSheet.onCu
         binding.editText.setFocusable(false);
         binding.editText.setOnClickListener( view -> {
             Intent intent = new Intent(MainActivity.this, AmountChoiceActivity.class);
-            startActivity(intent);
-            
+            startActivityForResult(intent, requestCode);
         });
     }
 

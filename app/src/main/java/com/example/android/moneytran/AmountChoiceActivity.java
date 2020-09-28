@@ -3,6 +3,7 @@ package com.example.android.moneytran;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,6 +14,9 @@ import android.view.View;
 
 import com.example.android.moneytran.currency.CurrentCurrency;
 import com.example.android.moneytran.databinding.ActivityAmountChoiceBinding;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class AmountChoiceActivity extends AppCompatActivity {
@@ -34,7 +38,10 @@ public class AmountChoiceActivity extends AppCompatActivity {
         setEditTextProperties();
 
         binding.doneButton.setOnClickListener(v -> {
-
+            Intent intent = new Intent();
+            intent.putExtra("editTextValue", "value");
+            setResult(RESULT_OK, intent);
+            finish();
         });
 
 
@@ -82,7 +89,7 @@ public class AmountChoiceActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 setCurrencySymbol();
                 try {
-                    if (s.length() > 1 ) {
+                    if (checkInputValidation()) {
                         binding.cancelButton.setVisibility(View.GONE);
                         binding.doneButton.setVisibility(View.VISIBLE);
                     }
@@ -101,6 +108,51 @@ public class AmountChoiceActivity extends AppCompatActivity {
             }
         });
     }
+
+    private boolean checkInputValidation() {
+        boolean isInputValid = false;
+        CharSequence s = binding.editText.getText();
+
+        if (s.length() > 1 & s.charAt(0) == currencySymbol) {
+            isInputValid = true;
+        }
+
+        if (s.charAt(1) == '.') {
+            isInputValid = false;
+        }
+
+        if (s.charAt(1) == '0' & s.length() == 2) {
+            isInputValid = false;
+        }
+
+        if (s.charAt(1) == '0'& s.charAt(2) == '.' & s.length() == 3) {
+            isInputValid = false;
+        }
+
+        if (s.charAt(1) == '0' & s.charAt(2) == '0') {
+            isInputValid = false;
+        }
+
+//        for (int i = 0; i < s.length(); i++) {
+//            if (s.charAt(i) == '.' ) {
+//                try {
+//                    char q = s.charAt(i+3);
+//                } catch (IndexOutOfBoundsException e) {
+//                    isInputValid = false;
+//                }
+//            }
+//        }
+
+        return isInputValid;
+    }
+
+
+
+//    private float getUserInput () {
+//        String currentText = binding.editText.getText().toString();
+//
+//        return ;
+//    }
 
 
 
