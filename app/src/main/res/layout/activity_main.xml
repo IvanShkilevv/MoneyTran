@@ -350,7 +350,7 @@
             android:layout_marginStart="@dimen/activity_margin_start"
             android:layout_marginTop="37dp"
             android:layout_marginEnd="@dimen/activity_margin_end"
-            android:background="@drawable/button_rounded_corners"
+            android:background="@drawable/button_disabled_rounded_corners"
             android:fontFamily="sans-serif-medium"
             android:text="@string/continue_button"
             android:textAllCaps="false"
