@@ -42,4 +42,7 @@
     <string name="jpy_balance">0.00 JPY</string>
     <string name="uah_name">Ukrainian Hryvnia</string>
     <string name="uah_balance">0.00 UAH</string>
+
+    <string name="cancel_button">Cancel</string>
+    <string name="done_button">Done</string>
 </resources>

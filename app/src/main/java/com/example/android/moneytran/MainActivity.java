@@ -2,6 +2,7 @@ package com.example.android.moneytran;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -19,14 +20,10 @@ public class MainActivity extends AppCompatActivity  implements BottomSheet.onCu
         View rootView = binding.getRoot();
         setContentView(rootView);
 
-        binding.cardViewCurrency.setOnClickListener( view -> {
-            BottomSheet bottomSheet = new BottomSheet();
-            bottomSheet.show(getSupportFragmentManager(),bottomSheet.getTag());
-        });
-
         setToolbar();
         setDefaultCurrency();
-
+        setCurrencyChoice();
+        setAmountChoice();
     }
 
     @Override
@@ -47,15 +44,35 @@ public class MainActivity extends AppCompatActivity  implements BottomSheet.onCu
     }
 
     private void updateCurrencyUI() {
+        String emptyAmount = CurrentCurrency.currentCurrency.getSymbol() + "0.00";
         binding.imageViewFlagCurrency.setImageResource(CurrentCurrency.currentCurrency.getFlag());
         binding.textViewCurrency.setText(CurrentCurrency.currentCurrency.getName());
         binding.textViewCurrencyBalance.setText(CurrentCurrency.currentCurrency.getBalance());
+        binding.editText.setHint(emptyAmount);
+        binding.textViewFeeAmount.setText(emptyAmount);
     }
 
     private void setDefaultCurrency() {
         if (CurrentCurrency.currentCurrency == null){
             CurrentCurrency.currentCurrency = new UnitedStatesDollar();
+            binding.editText.setHint(CurrentCurrency.currentCurrency.getSymbol() + "0.00");
         }
+    }
+
+    private void setCurrencyChoice() {
+        binding.cardViewCurrency.setOnClickListener( view -> {
+            BottomSheet bottomSheet = new BottomSheet();
+            bottomSheet.show(getSupportFragmentManager(),bottomSheet.getTag());
+        });
+    }
+
+    private void setAmountChoice() {
+        binding.editText.setFocusable(false);
+        binding.editText.setOnClickListener( view -> {
+            Intent intent = new Intent(MainActivity.this, AmountChoiceActivity.class);
+            startActivity(intent);
+            
+        });
     }
 
 
