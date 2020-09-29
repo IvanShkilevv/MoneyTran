@@ -13,13 +13,13 @@ import com.example.android.moneytran.databinding.ActivityMainBinding;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity  implements BottomSheet.onCurrencyChangedListener {
+public class MainActivity extends AppCompatActivity implements BottomSheet.onCurrencyChangedListener {
     ActivityMainBinding binding;
     private final int requiredRequestCode = 1;
     private float amount;
     private float fee = 0.025F;
-    private  String strAmount;
-    private  String strFeeAmount;
+    private String strAmount;
+    private String strFeeAmount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,7 @@ public class MainActivity extends AppCompatActivity  implements BottomSheet.onCu
 
         if (savedInstanceState != null) {
             amount = savedInstanceState.getFloat("amount key");
-        }
-        else {
+        } else {
             //setting default value
             amount = 0;
         }
@@ -52,31 +51,25 @@ public class MainActivity extends AppCompatActivity  implements BottomSheet.onCu
     }
 
     @Override
-    public void currentCurrencyChanged() {
-        updateCurrencyUI();
-    }
-
-    @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putFloat("amount key", amount);
         super.onSaveInstanceState(outState);
     }
 
     @Override
+    public void currentCurrencyChanged() {
+        updateCurrencyUI();
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == requiredRequestCode) {
-            if(resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK) {
                 amount = data.getFloatExtra("editTextValue", 0);
                 updateAmountUI();
             }
         }
-    }
-
-    private void setToolbar() {
-        binding.toolbar.setTitle(R.string.send_money_title);
-        binding.toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
-        binding.toolbar.setNavigationOnClickListener(view -> finish());
     }
 
     private void updateCurrencyUI() {
@@ -87,8 +80,7 @@ public class MainActivity extends AppCompatActivity  implements BottomSheet.onCu
         binding.textViewFeeAmount.setText(strFeeAmount);
         if (amount == 0) {
             binding.editText.setHint(strAmount);
-        }
-        else {
+        } else {
             binding.editText.setText(strAmount);
         }
     }
@@ -104,34 +96,39 @@ public class MainActivity extends AppCompatActivity  implements BottomSheet.onCu
 
     private void defineStringAmount() {
         strAmount = CurrentCurrency.currentCurrency.getSymbol()
-                + String.format(Locale.US,"%.2f", amount);
+                + String.format(Locale.US, "%.2f", amount);
 
         float feeAmount = fee * amount;
         strFeeAmount = CurrentCurrency.currentCurrency.getSymbol()
-                + String.format(Locale.US,"%.2f", feeAmount);
+                + String.format(Locale.US, "%.2f", feeAmount);
+    }
+
+    private void setToolbar() {
+        binding.toolbar.setTitle(R.string.send_money_title);
+        binding.toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        binding.toolbar.setNavigationOnClickListener(view -> finish());
     }
 
     private void setDefaultCurrency() {
-        if (CurrentCurrency.currentCurrency == null){
+        if (CurrentCurrency.currentCurrency == null) {
             CurrentCurrency.currentCurrency = new UnitedStatesDollar();
             binding.editText.setHint(CurrentCurrency.currentCurrency.getSymbol() + "0.00");
         }
     }
 
     private void setCurrencyChoice() {
-        binding.cardViewCurrency.setOnClickListener( view -> {
+        binding.cardViewCurrency.setOnClickListener(view -> {
             BottomSheet bottomSheet = new BottomSheet();
-            bottomSheet.show(getSupportFragmentManager(),bottomSheet.getTag());
+            bottomSheet.show(getSupportFragmentManager(), bottomSheet.getTag());
         });
     }
 
     private void setAmountChoice() {
         binding.editText.setFocusable(false);
-        binding.editText.setOnClickListener( view -> {
+        binding.editText.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, AmountChoiceActivity.class);
             startActivityForResult(intent, requiredRequestCode);
         });
     }
-
 
 }

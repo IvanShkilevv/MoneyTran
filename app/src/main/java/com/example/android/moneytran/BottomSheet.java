@@ -1,6 +1,5 @@
 package com.example.android.moneytran;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
@@ -24,6 +23,12 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+/*
+29.09.2020
+1) For BottomSheet could be used another approach: setting RecyclerView  and custom RadioGroup,
+ worth considering just in case of adding a lot of currencies.
+ 2) title "Choose currency" moves badly (when BottomSheet changes state). Developed according to the design red lines.
+ */
 public class BottomSheet extends BottomSheetDialogFragment {
     private BottomSheetBehavior bottomSheetBehavior;
     private BottomSheetBinding binding;
@@ -34,7 +39,7 @@ public class BottomSheet extends BottomSheetDialogFragment {
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         try {
             eventListener = (onCurrencyChangedListener) getActivity();
@@ -43,6 +48,7 @@ public class BottomSheet extends BottomSheetDialogFragment {
         }
     }
 
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         BottomSheetDialog bottomSheet = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
@@ -57,9 +63,7 @@ public class BottomSheet extends BottomSheetDialogFragment {
         //setting height of bottom sheet for expanded state
         binding.extraSpace.setMinimumHeight((Resources.getSystem().getDisplayMetrics().heightPixels) / 3);
 
-        binding.expandedStateClose.setOnClickListener(view -> {
-            dismiss();
-        });
+        binding.expandedStateClose.setOnClickListener(view -> dismiss());
 
         binding.expandedStateBar.setVisibility(View.GONE);
         setCurrenciesUnchecked();
@@ -194,6 +198,5 @@ public class BottomSheet extends BottomSheetDialogFragment {
         });
 
     }
-
 
 }

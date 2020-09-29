@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -18,7 +17,6 @@ import com.example.android.moneytran.databinding.ActivityAmountChoiceBinding;
 
 import java.text.DecimalFormat;
 import java.util.Locale;
-
 
 public class AmountChoiceActivity extends AppCompatActivity {
     private static final String LOG_TAG = AmountChoiceActivity.class.getSimpleName();
@@ -38,8 +36,8 @@ public class AmountChoiceActivity extends AppCompatActivity {
 
         binding.doneButton.setVisibility(View.GONE);
         setCloseActivityListeners();
-        setTextChangedListener();
         setEditTextProperties();
+        setTextChangedListener();
 
         binding.doneButton.setOnClickListener(v -> {
             if (parseInputText() & inputValueNotNull()) {
@@ -50,17 +48,11 @@ public class AmountChoiceActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
     private void setCloseActivityListeners() {
-        binding.toolbarClose.setOnClickListener(v -> {
-            finish();
-        });
-
-        binding.cancelButton.setOnClickListener(v -> {
-            finish();
-        });
+        binding.toolbarClose.setOnClickListener(v -> finish());
+        binding.cancelButton.setOnClickListener(v -> finish());
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -94,14 +86,13 @@ public class AmountChoiceActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 setCurrencySymbol();
-                    if (checkInputValidation(s)) {
-                        binding.cancelButton.setVisibility(View.GONE);
-                        binding.doneButton.setVisibility(View.VISIBLE);
-                    }
-                    else {
-                        binding.cancelButton.setVisibility(View.VISIBLE);
-                        binding.doneButton.setVisibility(View.GONE);
-                    }
+                if (checkInputValidation(s)) {
+                    binding.cancelButton.setVisibility(View.GONE);
+                    binding.doneButton.setVisibility(View.VISIBLE);
+                } else {
+                    binding.cancelButton.setVisibility(View.VISIBLE);
+                    binding.doneButton.setVisibility(View.GONE);
+                }
             }
 
             @Override
@@ -113,7 +104,6 @@ public class AmountChoiceActivity extends AppCompatActivity {
 
     private boolean checkInputValidation(CharSequence s) {
         boolean isInputValid = false;
-
         try {
             if (s.length() > 1 & s.charAt(0) == currencySymbol) {
                 isInputValid = true;
@@ -146,7 +136,7 @@ public class AmountChoiceActivity extends AppCompatActivity {
         return isInputValid;
     }
 
-    private boolean parseInputText () {
+    private boolean parseInputText() {
         boolean isParsingSuccessful = false;
         String text = binding.editText.getText().toString();
         try {
@@ -164,17 +154,13 @@ public class AmountChoiceActivity extends AppCompatActivity {
         return isParsingSuccessful;
     }
 
-    private boolean inputValueNotNull () {
+    private boolean inputValueNotNull() {
         if (amount != 0) {
-           return true;
-        }
-        else {
-           Toast.makeText(this, R.string.empty_user_input, Toast.LENGTH_SHORT).show();
-           return false;
+            return true;
+        } else {
+            Toast.makeText(this, R.string.empty_user_input, Toast.LENGTH_SHORT).show();
+            return false;
         }
     }
-
-
-
 
 }

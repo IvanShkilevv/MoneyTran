@@ -1,633 +1,639 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/bottomSheet"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/bottomSheet"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:id="@+id/bar_container"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                android:layout_height="match_parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/collapsed_state_bar"
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:id="@+id/bar_container"
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent">
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
-                        android:id="@+id/collapsed_state_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="@string/choose_currency_title"
-                        style="@style/Toolbar.TitleText"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <View
-                        android:id="@+id/swipe_marker"
-                        android:layout_width="36dp"
-                        android:layout_height="5dp"
-                        android:background="@drawable/swipe_marker_rounded_corners"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/collapsed_state_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/expanded_state_bar"
+                        <TextView
+                            android:id="@+id/collapsed_state_title"
+                            style="@style/Toolbar.TitleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="@string/choose_currency_title"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/swipe_marker"
+                            android:layout_width="36dp"
+                            android:layout_height="5dp"
+                            android:background="@drawable/swipe_marker_rounded_corners"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/expanded_state_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/expanded_state_title"
+                            style="@style/Toolbar.TitleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="37dp"
+                            android:layout_marginBottom="4dp"
+                            android:text="@string/choose_currency_title"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/expanded_state_close"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.551" />
+
+                        <ImageView
+                            android:id="@+id/expanded_state_close"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="21dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_clear" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewCurrencyEUR"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardElevation="0dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent">
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bar_container">
 
-                    <TextView
-                        android:id="@+id/expanded_state_title"
-                        style="@style/Toolbar.TitleText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="37dp"
-                        android:layout_marginBottom="4dp"
-                        android:text="@string/choose_currency_title"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/expanded_state_close"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.551" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <ImageView
-                        android:id="@+id/expanded_state_close"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="21dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_clear" />
+                        <ImageView
+                            android:id="@+id/imageViewFlagEUR"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="@dimen/activity_margin_top"
+                            android:layout_marginBottom="16dp"
+                            android:contentDescription="@string/content_description_currency_flag"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/flag_european_union" />
 
+                        <TextView
+                            android:id="@+id/textViewCurrencyEUR"
+                            style="@style/BodyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text_margin_start"
+                            android:layout_marginTop="@dimen/activity_margin_top"
+                            android:layout_marginEnd="@dimen/barrier_margin_end"
+                            android:text="@string/euro_name"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewCheckEUR"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewFlagEUR"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/textViewCurrencyBalanceEUR"
+                            style="@style/DetailsText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text_margin_start"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="@dimen/barrier_margin_end"
+                            android:text="@string/euro_balance"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewCheckEUR"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewFlagEUR"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyEUR" />
 
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                        <ImageView
+                            android:id="@+id/imageViewCheckEUR"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/check_margin_end"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_check"
+                            tools:ignore="contentDescription" />
 
+                        <androidx.constraintlayout.widget.Barrier
+                            android:id="@+id/barrierEUR"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:barrierDirection="left"
+                            app:constraint_referenced_ids="imageViewCheckEUR" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewCurrencyEUR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:foreground="?android:attr/selectableItemBackground"
-                app:cardElevation="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bar_container">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewCurrencyUSD"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyEUR">
 
-                    <ImageView
-                        android:id="@+id/imageViewFlagEUR"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="@dimen/activity_margin_top"
-                        android:layout_marginBottom="16dp"
-                        android:contentDescription="@string/content_description_currency_flag"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/flag_european_union" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textViewCurrencyEUR"
-                        style="@style/BodyText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/text_margin_start"
-                        android:layout_marginTop="@dimen/activity_margin_top"
-                        android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="@string/euro_name"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckEUR"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagEUR"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imageViewFlagUSD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16.5dp"
+                            android:layout_marginTop="@dimen/activity_margin_top"
+                            android:layout_marginBottom="17dp"
+                            android:contentDescription="@string/content_description_currency_flag"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/flag_united_states" />
 
-                    <TextView
-                        android:id="@+id/textViewCurrencyBalanceEUR"
-                        style="@style/DetailsText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/text_margin_start"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="@string/euro_balance"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckEUR"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagEUR"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyEUR" />
+                        <TextView
+                            android:id="@+id/textViewCurrencyUSD"
+                            style="@style/BodyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text_margin_start"
+                            android:layout_marginTop="@dimen/activity_margin_top"
+                            android:layout_marginEnd="@dimen/barrier_margin_end"
+                            android:text="@string/usd_name"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewCheckUSD"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewFlagUSD"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/imageViewCheckEUR"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/check_margin_end"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_check"
-                        tools:ignore="contentDescription" />
+                        <TextView
+                            android:id="@+id/textViewCurrencyBalanceUSD"
+                            style="@style/DetailsText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text_margin_start"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="@dimen/barrier_margin_end"
+                            android:text="@string/usd_balance"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewCheckUSD"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewFlagUSD"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyUSD" />
 
-                    <androidx.constraintlayout.widget.Barrier
-                        android:id="@+id/barrierEUR"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:barrierDirection="left"
-                        app:constraint_referenced_ids="imageViewCheckEUR" />
+                        <ImageView
+                            android:id="@+id/imageViewCheckUSD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/check_margin_end"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_check"
+                            tools:ignore="contentDescription" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+                        <androidx.constraintlayout.widget.Barrier
+                            android:id="@+id/barrierUSD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:barrierDirection="left"
+                            app:constraint_referenced_ids="imageViewCheckUSD" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewCurrencyUSD"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:foreground="?android:attr/selectableItemBackground"
-                app:cardElevation="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyEUR">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewCurrencyGBP"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyUSD">
 
-                    <ImageView
-                        android:id="@+id/imageViewFlagUSD"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16.5dp"
-                        android:layout_marginTop="@dimen/activity_margin_top"
-                        android:layout_marginBottom="17dp"
-                        android:contentDescription="@string/content_description_currency_flag"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/flag_united_states" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textViewCurrencyUSD"
-                        style="@style/BodyText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/text_margin_start"
-                        android:layout_marginTop="@dimen/activity_margin_top"
-                        android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="@string/usd_name"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckUSD"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagUSD"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imageViewFlagGBP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="@dimen/activity_margin_top"
+                            android:layout_marginBottom="16dp"
+                            android:contentDescription="@string/content_description_currency_flag"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/flag_united_kingdom" />
 
-                    <TextView
-                        android:id="@+id/textViewCurrencyBalanceUSD"
-                        style="@style/DetailsText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/text_margin_start"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="@string/usd_balance"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckUSD"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagUSD"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyUSD" />
+                        <TextView
+                            android:id="@+id/textViewCurrencyGBP"
+                            style="@style/BodyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text_margin_start"
+                            android:layout_marginTop="@dimen/activity_margin_top"
+                            android:layout_marginEnd="@dimen/barrier_margin_end"
+                            android:text="@string/gbp_name"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewCheckGBP"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewFlagGBP"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/imageViewCheckUSD"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/check_margin_end"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_check"
-                        tools:ignore="contentDescription" />
+                        <TextView
+                            android:id="@+id/textViewCurrencyBalanceGBP"
+                            style="@style/DetailsText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text_margin_start"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="@dimen/barrier_margin_end"
+                            android:text="@string/gbp_balance"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewCheckGBP"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewFlagGBP"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyGBP" />
 
-                    <androidx.constraintlayout.widget.Barrier
-                        android:id="@+id/barrierUSD"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:barrierDirection="left"
-                        app:constraint_referenced_ids="imageViewCheckUSD" />
+                        <ImageView
+                            android:id="@+id/imageViewCheckGBP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/check_margin_end"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_check"
+                            tools:ignore="contentDescription" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+                        <androidx.constraintlayout.widget.Barrier
+                            android:id="@+id/barrierGBP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:barrierDirection="left"
+                            app:constraint_referenced_ids="imageViewCheckGBP" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewCurrencyGBP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:foreground="?android:attr/selectableItemBackground"
-                app:cardElevation="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyUSD">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewCurrencyRUB"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyGBP">
 
-                    <ImageView
-                        android:id="@+id/imageViewFlagGBP"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="@dimen/activity_margin_top"
-                        android:layout_marginBottom="16dp"
-                        android:contentDescription="@string/content_description_currency_flag"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/flag_united_kingdom" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textViewCurrencyGBP"
-                        style="@style/BodyText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/text_margin_start"
-                        android:layout_marginTop="@dimen/activity_margin_top"
-                        android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="@string/gbp_name"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckGBP"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagGBP"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imageViewFlagRUB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="@dimen/activity_margin_top"
+                            android:layout_marginBottom="16dp"
+                            android:contentDescription="@string/content_description_currency_flag"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/flag_russia" />
 
-                    <TextView
-                        android:id="@+id/textViewCurrencyBalanceGBP"
-                        style="@style/DetailsText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/text_margin_start"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="@string/gbp_balance"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckGBP"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagGBP"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyGBP" />
+                        <TextView
+                            android:id="@+id/textViewCurrencyRUB"
+                            style="@style/BodyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text_margin_start"
+                            android:layout_marginTop="@dimen/activity_margin_top"
+                            android:layout_marginEnd="@dimen/barrier_margin_end"
+                            android:text="@string/rub_name"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewCheckRUB"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewFlagRUB"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/imageViewCheckGBP"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/check_margin_end"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_check"
-                        tools:ignore="contentDescription" />
+                        <TextView
+                            android:id="@+id/textViewCurrencyBalanceRUB"
+                            style="@style/DetailsText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text_margin_start"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="@dimen/barrier_margin_end"
+                            android:text="@string/rub_balance"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewCheckRUB"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewFlagRUB"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyRUB" />
 
-                    <androidx.constraintlayout.widget.Barrier
-                        android:id="@+id/barrierGBP"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:barrierDirection="left"
-                        app:constraint_referenced_ids="imageViewCheckGBP" />
+                        <ImageView
+                            android:id="@+id/imageViewCheckRUB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/check_margin_end"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_check"
+                            tools:ignore="contentDescription" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+                        <androidx.constraintlayout.widget.Barrier
+                            android:id="@+id/barrierRUB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:barrierDirection="left"
+                            app:constraint_referenced_ids="imageViewCheckRUB" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewCurrencyRUB"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:foreground="?android:attr/selectableItemBackground"
-                app:cardElevation="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyGBP">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewCurrencyCNY"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyRUB">
 
-                    <ImageView
-                        android:id="@+id/imageViewFlagRUB"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="@dimen/activity_margin_top"
-                        android:layout_marginBottom="16dp"
-                        android:contentDescription="@string/content_description_currency_flag"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/flag_russia" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textViewCurrencyRUB"
-                        style="@style/BodyText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/text_margin_start"
-                        android:layout_marginTop="@dimen/activity_margin_top"
-                        android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="@string/rub_name"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckRUB"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagRUB"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imageViewFlagCNY"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="@dimen/activity_margin_top"
+                            android:layout_marginBottom="16dp"
+                            android:contentDescription="@string/content_description_currency_flag"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/flag_china" />
 
-                    <TextView
-                        android:id="@+id/textViewCurrencyBalanceRUB"
-                        style="@style/DetailsText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/text_margin_start"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="@string/rub_balance"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckRUB"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagRUB"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyRUB" />
+                        <TextView
+                            android:id="@+id/textViewCurrencyCNY"
+                            style="@style/BodyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text_margin_start"
+                            android:layout_marginTop="@dimen/activity_margin_top"
+                            android:layout_marginEnd="@dimen/barrier_margin_end"
+                            android:text="@string/cny_name"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewCheckCNY"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewFlagCNY"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/imageViewCheckRUB"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/check_margin_end"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_check"
-                        tools:ignore="contentDescription" />
+                        <TextView
+                            android:id="@+id/textViewCurrencyBalanceCNY"
+                            style="@style/DetailsText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text_margin_start"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="@dimen/barrier_margin_end"
+                            android:text="@string/cny_balance"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewCheckCNY"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewFlagCNY"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyCNY" />
 
-                    <androidx.constraintlayout.widget.Barrier
-                        android:id="@+id/barrierRUB"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:barrierDirection="left"
-                        app:constraint_referenced_ids="imageViewCheckRUB" />
+                        <ImageView
+                            android:id="@+id/imageViewCheckCNY"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/check_margin_end"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_check"
+                            tools:ignore="contentDescription" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+                        <androidx.constraintlayout.widget.Barrier
+                            android:id="@+id/barrierCNY"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:barrierDirection="left"
+                            app:constraint_referenced_ids="imageViewCheckCNY" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewCurrencyCNY"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:foreground="?android:attr/selectableItemBackground"
-                app:cardElevation="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyRUB">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewCurrencyJPY"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyCNY">
 
-                    <ImageView
-                        android:id="@+id/imageViewFlagCNY"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="@dimen/activity_margin_top"
-                        android:layout_marginBottom="16dp"
-                        android:contentDescription="@string/content_description_currency_flag"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/flag_china" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textViewCurrencyCNY"
-                        style="@style/BodyText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/text_margin_start"
-                        android:layout_marginTop="@dimen/activity_margin_top"
-                        android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="@string/cny_name"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckCNY"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagCNY"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imageViewFlagJPY"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="@dimen/activity_margin_top"
+                            android:layout_marginBottom="16dp"
+                            android:contentDescription="@string/content_description_currency_flag"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/flag_japan" />
 
-                    <TextView
-                        android:id="@+id/textViewCurrencyBalanceCNY"
-                        style="@style/DetailsText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/text_margin_start"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="@string/cny_balance"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckCNY"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagCNY"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyCNY" />
+                        <TextView
+                            android:id="@+id/textViewCurrencyJPY"
+                            style="@style/BodyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text_margin_start"
+                            android:layout_marginTop="@dimen/activity_margin_top"
+                            android:layout_marginEnd="@dimen/barrier_margin_end"
+                            android:text="@string/jpy_name"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewCheckJPY"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewFlagJPY"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/imageViewCheckCNY"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/check_margin_end"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_check"
-                        tools:ignore="contentDescription" />
+                        <TextView
+                            android:id="@+id/textViewCurrencyBalanceJPY"
+                            style="@style/DetailsText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text_margin_start"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="@dimen/barrier_margin_end"
+                            android:text="@string/jpy_balance"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewCheckJPY"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewFlagJPY"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyJPY" />
 
-                    <androidx.constraintlayout.widget.Barrier
-                        android:id="@+id/barrierCNY"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:barrierDirection="left"
-                        app:constraint_referenced_ids="imageViewCheckCNY" />
+                        <ImageView
+                            android:id="@+id/imageViewCheckJPY"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/check_margin_end"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_check"
+                            tools:ignore="contentDescription" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+                        <androidx.constraintlayout.widget.Barrier
+                            android:id="@+id/barrierJPY"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:barrierDirection="left"
+                            app:constraint_referenced_ids="imageViewCheckJPY" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewCurrencyJPY"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:foreground="?android:attr/selectableItemBackground"
-                app:cardElevation="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyCNY">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewCurrencyUAH"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyJPY">
 
-                    <ImageView
-                        android:id="@+id/imageViewFlagJPY"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="@dimen/activity_margin_top"
-                        android:layout_marginBottom="16dp"
-                        android:contentDescription="@string/content_description_currency_flag"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/flag_japan" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textViewCurrencyJPY"
-                        style="@style/BodyText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/text_margin_start"
-                        android:layout_marginTop="@dimen/activity_margin_top"
-                        android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="@string/jpy_name"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckJPY"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagJPY"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imageViewFlagUAH"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="@dimen/activity_margin_top"
+                            android:layout_marginBottom="16dp"
+                            android:contentDescription="@string/content_description_currency_flag"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/flag_ukraine" />
 
-                    <TextView
-                        android:id="@+id/textViewCurrencyBalanceJPY"
-                        style="@style/DetailsText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/text_margin_start"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="@string/jpy_balance"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckJPY"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagJPY"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyJPY" />
+                        <TextView
+                            android:id="@+id/textViewCurrencyUAH"
+                            style="@style/BodyText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text_margin_start"
+                            android:layout_marginTop="@dimen/activity_margin_top"
+                            android:layout_marginEnd="@dimen/barrier_margin_end"
+                            android:text="@string/uah_name"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewCheckUAH"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewFlagUAH"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/imageViewCheckJPY"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/check_margin_end"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_check"
-                        tools:ignore="contentDescription" />
+                        <TextView
+                            android:id="@+id/textViewCurrencyBalanceUAH"
+                            style="@style/DetailsText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text_margin_start"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="@dimen/barrier_margin_end"
+                            android:text="@string/uah_balance"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewCheckUAH"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewFlagUAH"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyUAH" />
 
-                    <androidx.constraintlayout.widget.Barrier
-                        android:id="@+id/barrierJPY"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:barrierDirection="left"
-                        app:constraint_referenced_ids="imageViewCheckJPY" />
+                        <ImageView
+                            android:id="@+id/imageViewCheckUAH"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/check_margin_end"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_check"
+                            tools:ignore="contentDescription" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+                        <androidx.constraintlayout.widget.Barrier
+                            android:id="@+id/barrierUAH"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:barrierDirection="left"
+                            app:constraint_referenced_ids="imageViewCheckUAH" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewCurrencyUAH"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:foreground="?android:attr/selectableItemBackground"
-                app:cardElevation="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyJPY">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                </androidx.cardview.widget.CardView>
+
+                <View
+                    android:id="@+id/extraSpace"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/imageViewFlagUAH"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="@dimen/activity_margin_top"
-                        android:layout_marginBottom="16dp"
-                        android:contentDescription="@string/content_description_currency_flag"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/flag_ukraine" />
-
-                    <TextView
-                        android:id="@+id/textViewCurrencyUAH"
-                        style="@style/BodyText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/text_margin_start"
-                        android:layout_marginTop="@dimen/activity_margin_top"
-                        android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="@string/uah_name"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckUAH"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagUAH"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textViewCurrencyBalanceUAH"
-                        style="@style/DetailsText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/text_margin_start"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="@dimen/barrier_margin_end"
-                        android:text="@string/uah_balance"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewCheckUAH"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewFlagUAH"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewCurrencyUAH" />
-
-                    <ImageView
-                        android:id="@+id/imageViewCheckUAH"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/check_margin_end"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_check"
-                        tools:ignore="contentDescription" />
-
-                    <androidx.constraintlayout.widget.Barrier
-                        android:id="@+id/barrierUAH"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:barrierDirection="left"
-                        app:constraint_referenced_ids="imageViewCheckUAH" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-
-            <View
-                android:id="@+id/extraSpace"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyUAH" />
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/cardViewCurrencyUAH" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.core.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

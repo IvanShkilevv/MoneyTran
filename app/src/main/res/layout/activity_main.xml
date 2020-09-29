@@ -28,10 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_margin_start"
             android:layout_marginTop="@dimen/activity_margin_top"
+            android:contentDescription="@string/content_description_recipient_avatar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:srcCompat="@drawable/recipient_avatar"
-            android:contentDescription="@string/content_description_recipient_avatar" />
+            app:srcCompat="@drawable/recipient_avatar" />
 
         <ImageView
             android:id="@+id/imageViewArrowRight"
@@ -42,7 +42,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageViewRecipientAvatar"
             app:layout_constraintEnd_toEndOf="@+id/imageViewRecipientAvatar"
             app:srcCompat="@drawable/ic_arrow_mini_right"
-            tools:ignore = "contentDescription" />
+            tools:ignore="contentDescription" />
 
         <TextView
             android:id="@+id/textViewRecipientName"
@@ -76,10 +76,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_margin_top"
             android:layout_marginEnd="@dimen/activity_margin_end"
+            android:contentDescription="@string/content_description_create"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:srcCompat="@drawable/ic_create"
-            android:contentDescription="@string/content_description_create" />
+            app:srcCompat="@drawable/ic_create" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier"
@@ -123,7 +123,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
 
-
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewAccount"
             android:layout_width="match_parent"
@@ -150,7 +149,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/account_balance_background"
-                    tools:ignore = "contentDescription"/>
+                    tools:ignore="contentDescription" />
 
                 <ImageView
                     android:id="@+id/imageViewAccountBalance"
@@ -159,10 +158,10 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
+                    android:contentDescription="@string/content_description_account_balance"
                     app:layout_constraintBottom_toBottomOf="@+id/imageViewAccountBalanceBackground"
                     app:layout_constraintStart_toStartOf="@+id/imageViewAccountBalanceBackground"
-                    app:srcCompat="@drawable/ic_account_balance"
-                    android:contentDescription="@string/content_description_account_balance" />
+                    app:srcCompat="@drawable/ic_account_balance" />
 
                 <TextView
                     android:id="@+id/textViewAccountName"
@@ -198,7 +197,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_arrow_shevron_right"
-                    tools:ignore = "contentDescription" />
+                    tools:ignore="contentDescription" />
 
                 <androidx.constraintlayout.widget.Barrier
                     android:id="@+id/barrier2"
@@ -208,6 +207,7 @@
                     app:constraint_referenced_ids="imageViewShevronArrow" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -232,11 +232,11 @@
                     android:layout_marginStart="16.5dp"
                     android:layout_marginTop="@dimen/activity_margin_top"
                     android:layout_marginBottom="17dp"
+                    android:contentDescription="@string/content_description_currency_flag"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/flag_united_states"
-                    android:contentDescription="@string/content_description_currency_flag" />
+                    app:srcCompat="@drawable/flag_united_states" />
 
                 <TextView
                     android:id="@+id/textViewCurrency"
@@ -273,7 +273,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_arrow_shevron_right"
-                    tools:ignore = "contentDescription"/>
+                    tools:ignore="contentDescription" />
 
                 <androidx.constraintlayout.widget.Barrier
                     android:id="@+id/barrierCurrency"
@@ -283,6 +283,7 @@
                     app:constraint_referenced_ids="imageViewShevronArrowCurrency" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -328,10 +329,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="@string/content_description_info"
             app:layout_constraintStart_toEndOf="@+id/textViewFee"
             app:layout_constraintTop_toBottomOf="@+id/editText"
-            app:srcCompat="@drawable/ic_info_outline"
-            android:contentDescription="@string/content_description_info" />
+            app:srcCompat="@drawable/ic_info_outline" />
 
         <TextView
             android:id="@+id/textViewFeeAmount"
@@ -370,7 +371,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/continue_button" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
