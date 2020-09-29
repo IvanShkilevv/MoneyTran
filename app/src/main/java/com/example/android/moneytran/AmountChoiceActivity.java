@@ -17,8 +17,7 @@ import com.example.android.moneytran.currency.CurrentCurrency;
 import com.example.android.moneytran.databinding.ActivityAmountChoiceBinding;
 
 import java.text.DecimalFormat;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Locale;
 
 
 public class AmountChoiceActivity extends AppCompatActivity {
@@ -34,13 +33,16 @@ public class AmountChoiceActivity extends AppCompatActivity {
         View rootView = binding.getRoot();
         setContentView(rootView);
 
+        //setting Locale for correct handling float values (sets dot as separator)
+        Locale.setDefault(Locale.US);
+
         binding.doneButton.setVisibility(View.GONE);
         setCloseActivityListeners();
         setTextChangedListener();
         setEditTextProperties();
 
         binding.doneButton.setOnClickListener(v -> {
-            if (parseInputText()) {
+            if (parseInputText() & inputValueNotNull()) {
                 Intent intent = new Intent();
                 intent.putExtra("editTextValue", amount);
                 setResult(RESULT_OK, intent);
@@ -125,11 +127,15 @@ public class AmountChoiceActivity extends AppCompatActivity {
                 isInputValid = false;
             }
 
+            if (s.charAt(1) == '0' & s.charAt(2) == '0') {
+                isInputValid = false;
+            }
+
             if (s.charAt(1) == '0' & s.charAt(2) == '.' & s.length() == 3) {
                 isInputValid = false;
             }
 
-            if (s.charAt(1) == '0' & s.charAt(2) == '0') {
+            if (s.charAt(1) == '0' & s.charAt(2) == '.' & s.charAt(3) == '0' & s.length() == 4) {
                 isInputValid = false;
             }
 
@@ -156,6 +162,16 @@ public class AmountChoiceActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.empty_user_input, Toast.LENGTH_SHORT).show();
         }
         return isParsingSuccessful;
+    }
+
+    private boolean inputValueNotNull () {
+        if (amount != 0) {
+           return true;
+        }
+        else {
+           Toast.makeText(this, R.string.empty_user_input, Toast.LENGTH_SHORT).show();
+           return false;
+        }
     }
 
 

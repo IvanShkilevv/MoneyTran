@@ -2,7 +2,6 @@ package com.example.android.moneytran;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -11,6 +10,8 @@ import android.view.View;
 import com.example.android.moneytran.currency.CurrentCurrency;
 import com.example.android.moneytran.currency.UnitedStatesDollar;
 import com.example.android.moneytran.databinding.ActivityMainBinding;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity  implements BottomSheet.onCurrencyChangedListener {
     ActivityMainBinding binding;
@@ -27,8 +28,14 @@ public class MainActivity extends AppCompatActivity  implements BottomSheet.onCu
         View rootView = binding.getRoot();
         setContentView(rootView);
 
-        //setting default value
-        amount = 0;
+        if (savedInstanceState != null) {
+            amount = savedInstanceState.getFloat("amount key");
+        }
+        else {
+            //setting default value
+            amount = 0;
+        }
+
         setToolbar();
         setDefaultCurrency();
         setCurrencyChoice();
@@ -39,11 +46,20 @@ public class MainActivity extends AppCompatActivity  implements BottomSheet.onCu
     protected void onStart() {
         super.onStart();
         updateCurrencyUI();
+        if (amount != 0) {
+            updateAmountUI();
+        }
     }
 
     @Override
     public void currentCurrencyChanged() {
         updateCurrencyUI();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putFloat("amount key", amount);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
@@ -86,14 +102,13 @@ public class MainActivity extends AppCompatActivity  implements BottomSheet.onCu
         binding.continueButton.setBackgroundResource(R.drawable.button_enabled_rounded_corners);
     }
 
-    @SuppressLint("DefaultLocale")
     private void defineStringAmount() {
         strAmount = CurrentCurrency.currentCurrency.getSymbol()
-                + String.format("%.2f", amount);
+                + String.format(Locale.US,"%.2f", amount);
 
         float feeAmount = fee * amount;
         strFeeAmount = CurrentCurrency.currentCurrency.getSymbol()
-                + String.format("%.2f", feeAmount);
+                + String.format(Locale.US,"%.2f", feeAmount);
     }
 
     private void setDefaultCurrency() {
