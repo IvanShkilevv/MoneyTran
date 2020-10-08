@@ -1,4 +1,4 @@
 # MoneyTran
 Beautiful UI, uses power of ConstraintLayout and ViewBinding. 
 This app provides currency choice using BottomSheetDialog (module for money transaction app). 
-![alt text](screenshots/1.jpeg "Начальный экран")
+![](screenshots/1.jpeg "Начальный экран")
